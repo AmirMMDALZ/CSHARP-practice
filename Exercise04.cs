@@ -25,7 +25,6 @@ namespace project
             }
             Console.WriteLine("Count even numbers:" + count);
             Console.WriteLine("The Sum of even numbers:" + sum);
-            Console.ReadKey();
         }
     }
 }
