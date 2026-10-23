@@ -10,10 +10,7 @@ namespace project
     {
          static float CalculateAverage(List<float> numbers)
          {
-            if (numbers.Count==0)
-            {
-                throw new ArgumentException("the List is empty");
-            }
+            ValidateList(numbers);
             float Sum = 0;
             foreach (float n in numbers)
             {
@@ -24,10 +21,7 @@ namespace project
          }
         static float FindMax(List<float> numbers)
         {
-            if (numbers.Count == 0)
-            {
-                throw new ArgumentException("the List is empty");
-            }
+            ValidateList(numbers);
             float max = numbers[0];
             for (int i = 1; i < numbers.Count; i++)
             {
@@ -38,10 +32,7 @@ namespace project
         }
         static float FindMin(List<float> numbers)
         {
-            if (numbers.Count == 0)
-            {
-                throw new ArgumentException("the List is empty");
-            }
+            ValidateList(numbers);
             float min = numbers[0];
             for (int i = 1; i < numbers.Count; i++)
             {
@@ -50,8 +41,17 @@ namespace project
             }
             return min;
         }
+        static void ValidateList(List<float> numbers)
+        {
+            if (numbers.Count == 0)
+            {
+                throw new ArgumentException("the List is empty");
+            }
+        }
         public static void Run()
         {
+            List<float> empty = new List<float>();
+            Console.WriteLine(CalculateAverage(empty));
             List<float> numbers = new List<float>();
             Console.WriteLine("Please Enter how many numbers you wanna try :");
             int C = Convert.ToInt16(Console.ReadLine());
