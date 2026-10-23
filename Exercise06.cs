@@ -13,6 +13,11 @@ namespace project
             List<float> numbers = new List<float>();
             Console.WriteLine("Please Enter how many numbers you wanna try :");
             int C = Convert.ToInt16(Console.ReadLine());
+            if (C <= 0)
+            {
+                Console.WriteLine("The Number should be above Zero");
+                return;
+            }
             for (int i = 0; i < C; i++)
             {
                 Console.WriteLine("Enter a number:");
