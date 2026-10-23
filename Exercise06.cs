@@ -8,11 +8,27 @@ namespace project
 {
     class Exercise06
     {
+         static float CalculateAverage(List<float> numbers)
+        {
+            if (numbers.Count==0)
+            {
+                throw new ArgumentException("the List is empty");
+            }
+            float Sum = 0;
+            foreach (float n in numbers)
+            {
+                Sum += n;
+            }
+            float Average = Sum / numbers.Count;
+            return Average;
+        }
+
         public static void Run()
         {
             List<float> numbers = new List<float>();
             Console.WriteLine("Please Enter how many numbers you wanna try :");
             int C = Convert.ToInt16(Console.ReadLine());
+            
             if (C <= 0)
             {
                 Console.WriteLine("The Number should be above Zero");
@@ -33,9 +49,8 @@ namespace project
                     max = numbers[i];
                 if (numbers[i] < min)
                     min = numbers[i];
-                sum += numbers[i];
             }
-            float average = sum / numbers.Count;
+            float average = CalculateAverage(numbers);
             for (int i = 0; i < numbers.Count; i++)
             {
                 if (numbers[i] > average)

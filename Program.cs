@@ -10,7 +10,7 @@ namespace project
     {
         static void Main()
         {
-            Exercise05.Run();
+            Exercise06.Run();
         }
     }
 
