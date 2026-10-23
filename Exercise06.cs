@@ -9,7 +9,7 @@ namespace project
     class Exercise06
     {
          static float CalculateAverage(List<float> numbers)
-        {
+         {
             if (numbers.Count==0)
             {
                 throw new ArgumentException("the List is empty");
@@ -21,8 +21,35 @@ namespace project
             }
             float Average = Sum / numbers.Count;
             return Average;
+         }
+        static float FindMax(List<float> numbers)
+        {
+            if (numbers.Count == 0)
+            {
+                throw new ArgumentException("the List is empty");
+            }
+            float max = numbers[0];
+            for (int i = 1; i < numbers.Count; i++)
+            {
+                if (numbers[i] > max)
+                    max = numbers[i];
+            }
+            return max;
         }
-
+        static float FindMin(List<float> numbers)
+        {
+            if (numbers.Count == 0)
+            {
+                throw new ArgumentException("the List is empty");
+            }
+            float min = numbers[0];
+            for (int i = 1; i < numbers.Count; i++)
+            {
+                if (numbers[i] < min)
+                    min = numbers[i];
+            }
+            return min;
+        }
         public static void Run()
         {
             List<float> numbers = new List<float>();
@@ -38,19 +65,11 @@ namespace project
             {
                 Console.WriteLine("Enter a number:");
                 numbers.Add(Convert.ToSingle(Console.ReadLine()));
-            }
-            float max = numbers[0];
-            float min = numbers[0];
-            float sum = 0;
+            }  
             int aboveAverage = 0;
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                if (numbers[i] > max)
-                    max = numbers[i];
-                if (numbers[i] < min)
-                    min = numbers[i];
-            }
             float average = CalculateAverage(numbers);
+            float max = FindMax(numbers);
+            float min = FindMin(numbers);
             for (int i = 0; i < numbers.Count; i++)
             {
                 if (numbers[i] > average)
